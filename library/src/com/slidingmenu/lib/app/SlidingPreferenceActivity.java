@@ -50,7 +50,13 @@ public class SlidingPreferenceActivity extends PreferenceActivity implements Sli
 		super.onSaveInstanceState(outState);
 		mHelper.onSaveInstanceState(outState);
 	}
-
+	
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mHelper.onRestoreInstanceState(savedInstanceState);
+    }
+    
 	/* (non-Javadoc)
 	 * @see android.app.Activity#setContentView(int)
 	 */

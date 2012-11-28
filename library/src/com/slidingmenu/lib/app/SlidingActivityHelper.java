@@ -86,7 +86,10 @@ public class SlidingActivityHelper {
 			mSlidingMenu.setContent(mViewAbove);
 			parent.addView(mSlidingMenu, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 		}
-		this.showAbove();
+//		this.showAbove();
+        if ((savedInstanceState != null) && (savedInstanceState.getBoolean("menuOpen"))) {
+            showBehind();
+        }
 	}
 
 	/**
@@ -128,7 +131,13 @@ public class SlidingActivityHelper {
 	public void onSaveInstanceState(Bundle outState) {
 		outState.putBoolean("menuOpen", mSlidingMenu.isBehindShowing());
 	}
-
+	
+	public void onRestoreInstanceState(Bundle savedInstanceState) {
+	    if ((savedInstanceState != null) && (savedInstanceState.getBoolean("menuOpen"))) {
+	        showBehind();
+	    }
+    }
+	
 	/**
 	 * Register the above content view.
 	 *

@@ -54,7 +54,13 @@ public class SlidingListActivity extends ListActivity implements SlidingActivity
 		super.onSaveInstanceState(outState);
 		mHelper.onSaveInstanceState(outState);
 	}
-
+	
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mHelper.onRestoreInstanceState(savedInstanceState);
+    }
+    
 	/* (non-Javadoc)
 	 * @see android.app.Activity#setContentView(int)
 	 */

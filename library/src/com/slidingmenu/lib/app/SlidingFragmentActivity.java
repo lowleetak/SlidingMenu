@@ -1,14 +1,14 @@
 package com.slidingmenu.lib.app;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.slidingmenu.lib.SlidingMenu;
 
-public class SlidingFragmentActivity extends FragmentActivity implements SlidingActivityBase {
+public class SlidingFragmentActivity extends SherlockFragmentActivity implements SlidingActivityBase {
 
 	private SlidingActivityHelper mHelper;
 
@@ -50,7 +50,13 @@ public class SlidingFragmentActivity extends FragmentActivity implements Sliding
 		super.onSaveInstanceState(outState);
 		mHelper.onSaveInstanceState(outState);
 	}
-
+	
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mHelper.onRestoreInstanceState(savedInstanceState);
+    }
+    
 	/* (non-Javadoc)
 	 * @see android.app.Activity#setContentView(int)
 	 */
