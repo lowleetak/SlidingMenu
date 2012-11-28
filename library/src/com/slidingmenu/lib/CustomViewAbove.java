@@ -497,7 +497,7 @@ public class CustomViewAbove extends ViewGroup {
 	}
 
 	public void setContent(View v) {
-		if (mContent == null) 
+		if (mContent != null) 
 			this.removeView(mContent);
 		mContent = v;
 		addView(mContent);
